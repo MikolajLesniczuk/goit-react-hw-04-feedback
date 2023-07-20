@@ -1,0 +1,14 @@
+.button_position {
+    display: flex;
+justify-content: center;
+}
+.buton {
+    margin-left: 20px;
+    /* margin-top: 30px; */
+    /* margin-bottom: 40px; */
+    background-color: #745d5d;
+    outline: none;
+    border-radius: 5px;
+    width: 70px;
+    height: 25px;
+}
