@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types';
-import s from './Section.module.css'
+import s from './Section.module.css';
 
+const Section = ({ title, children }) => {
+  return (
+    <section className={s.section}>
+      <h2 className={s.title}>{title} </h2>
 
-const Section = ({title, children }) => {
-    return (
-        <section className={s.section}>
-            <h2 className={ s.title}>{title} </h2>
-            
-            {children}</section>
-    )
-
-}
+      {children}
+    </section>
+  );
+};
 
 Section.prototype = {
-    children: PropTypes.node,
-}
+  children: PropTypes.node,
+};
 
-export default Section;
+export { Section };
