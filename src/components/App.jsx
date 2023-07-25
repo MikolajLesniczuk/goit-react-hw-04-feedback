@@ -6,20 +6,20 @@ import { Notification } from './Notification/Notification';
 import s from './container/Section.module.css';
 
 const App = () => {
-  const [feedback, setFeedback] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  });
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
 
-  const onLeaveFeedback = state => {
-    setFeedback(prevFeedback => ({
-      ...prevFeedback,
-      [state]: prevFeedback[state] + 1,
-    }));
+  const feedbackOptions = {
+    good: setGood,
+    neutral: setNeutral,
+    bad: setBad,
   };
 
-  const { good, neutral, bad } = feedback;
+  const onLeaveFeedback = option => {
+    feedbackOptions[option](prevState => prevState + 1);
+    // console.log(option);
+  };
 
   const countTotalFeedback = () => {
     return good + neutral + bad;
@@ -29,7 +29,7 @@ const App = () => {
     return Math.round((good / countTotalFeedback()) * 100);
   };
 
-  const options = Object.keys(feedback);
+  const options = Object.keys(feedbackOptions);
 
   return (
     <div className={s.container}>
